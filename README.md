@@ -17,34 +17,40 @@ A zero-boilerplate way to run Python projects with virtual environments and pack
 
 ## 📦 Installation
 
-1. **Clone this repo:**
+1. **Create a `.templates` directory (if you don't already have one):**
 
 ```bash
-git clone https://github.com/devbyte1328/python-shell.git
+mkdir -p ~/.templates
 ```
 
-2. **Add an alias to your shell config (`.bashrc`, `.zshrc`, etc):**
+2. **Save the script as `python_shell.sh` in that directory:**
+
+```bash
+cp python_shell.sh ~/.templates/
+```
+
+3. **Add the alias to your shell config (`.bashrc`, `.zshrc`, etc):**
 
 ```bash
 echo "alias python_shell='bash ~/.templates/python_shell.sh'" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-> Replace `~/path/to` with the actual path where you cloned the repo.
+> Now `python_shell` will be available in any terminal session.
 
 ---
 
 ## 🚀 Usage
 
-In any Python project directory that already contains a `venv/`:
+Inside any Python project directory that already contains a virtual environment (`venv/`):
 
 ```bash
 python_shell
 ```
 
-This will drop a ready-to-go, self-updating `run.sh` into the current folder.
+This will drop a ready-to-go, self-updating `run.sh` script into your current folder.
 
-Then simply:
+Then simply run:
 
 ```bash
 ./run.sh
@@ -64,7 +70,7 @@ If you want full automation, include these files in your project:
 
 - `requirements.txt` – List of Python packages (one per line)
 - `arch_packages.txt` – List of system packages for Arch Linux
-- `main.py` – The main Python script the runner will execute
+- `main.py` – Your main script
 
 Example `requirements.txt`:
 ```
@@ -96,6 +102,17 @@ python_shell
 # Run it
 ./run.sh
 ```
+
+---
+
+## 🧠 Why This Exists
+
+This script is for developers who:
+
+- Use Python a lot
+- Hate boilerplate setup
+- Want fast, repeatable project execution
+- Use Arch Linux and want system package checks built-in
 
 ---
 
