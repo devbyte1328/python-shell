@@ -17,15 +17,17 @@ A zero-boilerplate way to run Python projects with virtual environments and pack
 
 ## 📦 Installation
 
-1. **Create a `.templates` directory (if you don't already have one):**
+1. **Clone this repo:**
+
+```bash
+git clone https://github.com/devbyte1328/python-shell
+cd python-shell
+```
+
+2. **Move the script to your templates folder:**
 
 ```bash
 mkdir -p ~/.templates
-```
-
-2. **Save the script as `python_shell.sh` in that directory:**
-
-```bash
 cp python_shell.sh ~/.templates/
 ```
 
