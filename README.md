@@ -1,15 +1,15 @@
 # 🐚 python-shell
 
-A zero-boilerplate way to run Python projects with virtual environments and package checks, tailored for Arch Linux users. Just type `python_shell` in your terminal and it will drop a smart `run.sh` script into the current directory.
+A zero-boilerplate way to run Python projects with optional virtual environments and smart package checks — tailored for Arch Linux users. Just run `python_shell` in your terminal and it will drop a ready-to-use `run.sh` script into the current directory.
 
 ---
 
 ## ✨ Features
 
-- Activates an existing virtual environment (`venv/`)
-- Installs only missing Python packages from `requirements.txt`
-- Installs only missing Arch Linux packages from `arch_packages.txt`
+- Activates an existing virtual environment (`venv/`) if found
 - Silently upgrades `pip` **only if a newer version is available**
+- Installs only **missing** Python packages from `requirements.txt`
+- Installs only **missing** Arch Linux packages from `arch_packages.txt`
 - Quiet and efficient: minimal output, no unnecessary re-installs
 - Runs your `main.py` script at the end
 
@@ -38,19 +38,19 @@ echo "alias python_shell='bash ~/.templates/python_shell.sh'" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-> Now `python_shell` will be available in any terminal session.
+> ✅ Now `python_shell` is available in any terminal session.
 
 ---
 
 ## 🚀 Usage
 
-Inside any Python project directory that already contains a virtual environment (`venv/`):
+Inside any Python project folder:
 
 ```bash
 python_shell
 ```
 
-This will drop a ready-to-go, self-updating `run.sh` script into your current folder.
+This will drop a ready-to-go `run.sh` script into your current folder.
 
 Then simply run:
 
@@ -59,7 +59,7 @@ Then simply run:
 ```
 
 It will:
-- Activate your virtual environment
+- Activate your virtual environment (if it exists)
 - Install any missing Python or Arch Linux packages
 - Upgrade pip if needed
 - Run your `main.py` script
