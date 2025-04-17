@@ -20,7 +20,7 @@ A zero-boilerplate way to run Python projects with virtual environments and pack
 1. **Clone this repo:**
 
 ```bash
-git clone https://github.com/yourusername/python-shell.git
+git clone https://github.com/devbyte1328/python-shell.git
 ```
 
 2. **Add an alias to your shell config (`.bashrc`, `.zshrc`, etc):**
