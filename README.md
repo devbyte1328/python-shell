@@ -26,7 +26,7 @@ git clone https://github.com/devbyte1328/python-shell.git
 2. **Add an alias to your shell config (`.bashrc`, `.zshrc`, etc):**
 
 ```bash
-echo "alias python_shell='bash ~/path/to/python-shell/python_shell.sh'" >> ~/.bashrc
+echo "alias python_shell='bash ~/.templates/python_shell.sh'" >> ~/.bashrc
 source ~/.bashrc
 ```
 
