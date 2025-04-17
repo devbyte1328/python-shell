@@ -28,8 +28,6 @@ if [ -d "$VENV_DIR" ]; then
             fi
         done < requirements.txt
     fi
-else
-    echo "No virtual environment found. Continuing without it..."
 fi
 
 # Install missing Arch packages
