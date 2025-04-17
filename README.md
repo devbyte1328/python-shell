@@ -1,6 +1,6 @@
 # 🐚 python-shell
 
-A zero-boilerplate way to run Python projects with optional virtual environments and smart package checks — tailored for Arch Linux users. Just run `python_shell` in your terminal and it will drop a ready-to-use `run.sh` script into the current directory.
+A zero-boilerplate way to run Python projects with optional virtual environments and smart package checks — tailored for Arch Linux users. Just run `python-shell` in your terminal and it will drop a ready-to-use `run.sh` script into the current directory.
 
 ---
 
@@ -28,17 +28,17 @@ cd python-shell
 
 ```bash
 mkdir -p ~/.templates
-cp python_shell.sh ~/.templates/
+cp python-shell.sh ~/.templates/
 ```
 
 3. **Add the alias to your shell config (`.bashrc`, `.zshrc`, etc):**
 
 ```bash
-echo "alias python_shell='bash ~/.templates/python_shell.sh'" >> ~/.bashrc
+echo "alias python-shell='bash ~/.templates/python-shell.sh'" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-> ✅ Now `python_shell` is available in any terminal session.
+> ✅ Now `python-shell` is available in any terminal session.
 
 ---
 
@@ -47,7 +47,7 @@ source ~/.bashrc
 Inside any Python project folder:
 
 ```bash
-python_shell
+python-shell
 ```
 
 This will drop a ready-to-go `run.sh` script into your current folder.
@@ -99,7 +99,7 @@ touch main.py requirements.txt arch_packages.txt
 # Add packages to the text files...
 
 # Drop in the run script
-python_shell
+python-shell
 
 # Run it
 ./run.sh
