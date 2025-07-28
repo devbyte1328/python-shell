@@ -7,40 +7,35 @@ set -e  # Exit on error
 
 VENV_DIR="venv"
 
-# Activate virtual environment if it exists
-if [ -d "$VENV_DIR" ]; then
-    echo "Activating virtual environment in '$VENV_DIR'..."
-    source "$VENV_DIR/bin/activate"
-
-    # Upgrade pip if a newer version is available
-    CURRENT_PIP=$(pip --version | awk '{print $2}')
-    LATEST_PIP=$(python3 -m pip install --upgrade pip --dry-run 2>/dev/null | grep -oP '(?<=pip )\d+(\.\d+)+(?= ->)' || echo "$CURRENT_PIP")
-
-    if [ "$CURRENT_PIP" != "$LATEST_PIP" ]; then
-        python3 -m pip install --upgrade pip > /dev/null
-    fi
-
-    # Install missing Python packages if requirements.txt exists
-    if [ -f "requirements.txt" ]; then
-        while read -r package; do
-            if ! pip show "$package" > /dev/null 2>&1; then
-                pip install "$package" > /dev/null
-            fi
-        done < requirements.txt
-    fi
+# Create virtual environment if missing
+if [ ! -d "$VENV_DIR" ]; then
+    echo "Creating virtual environment in '$VENV_DIR'..."
+    python3 -m venv "$VENV_DIR"
 fi
 
-# Install missing Arch packages
-if [ -f "arch_packages.txt" ]; then
-    while read -r pkg; do
-        if ! pacman -Qi "$pkg" > /dev/null 2>&1; then
-            sudo pacman -S --noconfirm "$pkg" > /dev/null
-        fi
-    done < arch_packages.txt
+# Activate virtual environment
+echo "Activating virtual environment..."
+source "$VENV_DIR/bin/activate"
+
+# Ensure pip and pipreqs are up to date
+pip install --upgrade pip > /dev/null
+pip install --quiet pipreqs
+
+# Generate requirements.txt if missing
+if [ ! -f "requirements.txt" ]; then
+    echo "Generating requirements.txt using pipreqs..."
+    pipreqs . --force
 fi
 
-# Run the Python script
+# Install all packages in requirements.txt
+echo "Installing packages from requirements.txt..."
+pip install -r requirements.txt
+
+# Run the script
+echo "Running main.py..."
 python3 main.py
 EOF
 
 chmod +x run.sh
+echo "'run.sh' created."
+
