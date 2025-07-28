@@ -8,7 +8,6 @@ A zero-boilerplate way to run Python projects with automatic virtualenv setup an
 - Automatically generates `requirements.txt` using `pipreqs` if it's missing
 - Installs all required packages from `requirements.txt`
 - Runs your `main.py` script
-- No guesswork, no hardcoded mapping — actual package names resolved from imports
 
 ## Installation
 
