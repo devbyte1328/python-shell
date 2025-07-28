@@ -56,23 +56,6 @@ What happens next:
 - All dependencies are installed
 - `main.py` is executed
 
-## Example Workflow
-
-```bash
-# Inside your project folder
-python3 -m venv venv
-source venv/bin/activate
-touch main.py
-
-# Write your script (e.g. imports PIL, subprocess, etc)
-
-# Drop in the run script
-python-shell
-
-# Run it
-./run.sh
-```
-
 ## Notes
 
 - This tool uses `pipreqs` for dependency inference, which detects all imports and resolves them to valid PyPI package names.
