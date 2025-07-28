@@ -2,8 +2,6 @@
 
 A zero-boilerplate way to run Python projects with automatic virtualenv setup and accurate dependency detection using `pipreqs`. Just run `python-shell` in your terminal and it will drop a ready-to-use `run.sh` script into the current directory.
 
----
-
 ## Features
 
 - Creates and activates a virtual environment (`venv/`)
@@ -12,40 +10,36 @@ A zero-boilerplate way to run Python projects with automatic virtualenv setup an
 - Runs your `main.py` script
 - No guesswork, no hardcoded mapping — actual package names resolved from imports
 
----
-
 ## Installation
 
 1. Clone this repo:
 
-```bash
+```
 git clone https://github.com/devbyte1328/python-shell
 cd python-shell
 ```
 
 2. Move the script to your templates folder:
 
-```bash
+```
 mkdir -p ~/.templates
 cp python-shell.sh ~/.templates/
 ```
 
 3. Add the alias to your shell config (`.bashrc`, `.zshrc`, etc):
 
-```bash
+```
 echo "alias python-shell='bash ~/.templates/python-shell.sh'" >> ~/.bashrc
 source ~/.bashrc
 ```
 
 > Now `python-shell` is available in any terminal session.
 
----
-
 ## Usage
 
 Inside any Python project folder:
 
-```bash
+```
 python-shell
 ```
 
@@ -62,8 +56,6 @@ What happens next:
 - `pipreqs` scans your Python files to generate `requirements.txt` (if missing)
 - All dependencies are installed
 - `main.py` is executed
-
----
 
 ## Example Workflow
 
@@ -82,17 +74,9 @@ python-shell
 ./run.sh
 ```
 
----
-
 ## Notes
 
 - This tool uses `pipreqs` for dependency inference, which detects all imports and resolves them to valid PyPI package names.
 - It avoids incorrect package names (e.g., `PIL` becomes `Pillow`, `cv2` becomes `opencv-python`) without any manual mapping.
 - Ideal for rapid prototyping and small-to-medium projects.
-
----
-
-## License
-
-MIT License. Use it freely.
 
